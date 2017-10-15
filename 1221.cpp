@@ -4,31 +4,39 @@
      
 using namespace std;
      
+int primo(int numero,int count){
+	if(numero==0 || numero==1) return 0;
+	for(int i=2;i<=sqrt(numero);i++){
+		if(numero%i==0){
+			count ++;
+		}
+		if(count>0){
+			break;
+		}
+	}
+	if(count==0){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+     
 int main () 
 {
 	int number;
-	int lol;
-	int count;
+	int aux;
 	cin >> aux;
 
 	for(int b =1; b <= aux;b++){
 		cin >> number;
-		count=0;
 
-		for(int a=2 ;a < sqrt(number);a+=1){ 
-			
-			if ((number%a) == 0)	
-				count ++;
-			
-		}
-		if (count == 0)
+		if (primo(number,0)==1)
 			cout <<"Prime\n";	
 		else
 			cout << "Not Prime\n";
-
-
-
-}
-return 0;
+	}
+	return 0;
 
 }
